@@ -15,12 +15,10 @@
 
   <ng-container role="body">
     <div class="banner background-primary">
-      <h1>CinePS</h1>
+      <h1>Ciné PS</h1>
     </div>
     
-    <div class="container">
-
-      <img src="images/space.jpg" alt="CinePS" class="img-fluid" style="width: 100%; height: auto;">
+    <div class="container" [ngStyle]="{'background': 'linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url(images/space.jpg) no-repeat top / cover'}">
     </div>
   </ng-container>
 </app-layout>

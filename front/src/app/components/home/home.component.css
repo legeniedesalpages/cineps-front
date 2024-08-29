@@ -9,6 +9,6 @@
   overflow: hidden;
 }
 
-button {
-  align-items: center;
+.container {
+  min-height: 500px;
 }
