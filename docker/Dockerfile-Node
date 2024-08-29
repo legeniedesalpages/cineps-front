@@ -1,0 +1,9 @@
+FROM node:latest
+
+WORKDIR /usr/src/app
+
+RUN npm install -g @angular/core@18 @angular/cli@18
+
+EXPOSE 5000 49153
+
+CMD npm install;ng serve --hmr --poll 500 --port 5000 --host 0.0.0.0 --disable-host-check

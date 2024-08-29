@@ -1,0 +1,5 @@
+data
+.vscode-janus-debug
+*.code-workspace
+.vscode/
+**/dist/

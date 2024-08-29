@@ -1,0 +1,28 @@
+@use '@angular/material'as mat;
+
+@include mat.core();
+
+$cineps-theme: mat.define-theme((
+      color: (
+        theme-type: dark, 
+        primary: mat.$green-palette,
+        tertiary: mat.$azure-palette
+      )
+));
+
+
+html {
+  @include mat.all-component-themes($cineps-theme);
+}
+
+/* Layout */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
