@@ -5,8 +5,7 @@
 $cineps-theme: mat.define-theme((
       color: (
         theme-type: dark, 
-        primary: mat.$green-palette,
-        tertiary: mat.$azure-palette
+        primary: mat.$orange-palette
       )
 ));
 
@@ -25,4 +24,11 @@ body {
 
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: #000;
+  color: mat.get-theme-color($cineps-theme, primary);
+}
+
+.background-primary {
+  background-color: mat.get-theme-color($cineps-theme, primary);
+  color: mat.get-theme-color($cineps-theme, on-primary);
 }

@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: `
     <div class="app">
-      CinePS
+      <router-outlet #o="outlet"></router-outlet>
     </div>
   `,
 })
