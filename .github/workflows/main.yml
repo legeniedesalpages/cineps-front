@@ -1,0 +1,45 @@
+name: Construction & Deploiement du site sur OVH
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+  
+    runs-on: ubuntu-latest
+    environment: prod
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    
+    - uses: actions/checkout@v3
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+    - name: Install Front Dependencies
+      if: steps.cache-nodemodules.outputs.cache-hit != 'true'
+      run: npm ci
+      working-directory: ./front
+      
+    - name: Build Front
+      run: npm run build -- --configuration production
+      working-directory: ./front
+      
+    - name: Déploiement Front
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      with:
+        server: ftp.cluster028.hosting.ovh.net
+        local-dir: ./front/dist/app/
+        server-dir: /www/cineps/
+        dangerous-clean-slate: true
+        username: ${{ secrets.OVH_USERNAME }}
+        password: ${{ secrets.OVH_PASSWORD }}
