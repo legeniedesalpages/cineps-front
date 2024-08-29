@@ -14,6 +14,9 @@ import { Component, OnInit } from '@angular/core'
 import { environment } from 'src/environments/environment'
 import { LayoutComponent } from '../layout/layout.component'
 import { MatIconModule } from '@angular/material/icon'
+import { MatMenuModule} from '@angular/material/menu';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   templateUrl: './home.component.html',
@@ -21,7 +24,10 @@ import { MatIconModule } from '@angular/material/icon'
   standalone: true,
   imports: [
     LayoutComponent,
-    MatIconModule
+    MatIconModule,
+    MatMenuModule,
+    CommonModule,
+    MatButtonModule
   ]
 })
 export class HomeComponent implements OnInit {
@@ -32,5 +38,8 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  logout() {
   }
 }

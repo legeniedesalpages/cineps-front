@@ -1,6 +1,16 @@
 <app-layout [withBackButton]="false">
   <ng-container role="header">
-    
+    <button mat-flat-button [matMenuTriggerFor]="login">
+      <span>utilisateur</span>
+      <mat-icon>person</mat-icon>
+    </button>
+
+    <mat-menu #login="matMenu" xPosition="before">
+      <button mat-menu-item (click)="logout()">
+        <mat-icon>power_settings_new</mat-icon>
+        <span>Se déconnecter</span>
+      </button>
+    </mat-menu>
   </ng-container>
 
   <ng-container role="body">
@@ -9,12 +19,8 @@
     </div>
     
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <h2 class="text-center">Bienvenido a CinePS</h2>
-          <p class="text-center">La mejor plataforma para ver tus películas y series favoritas</p>
-        </div>
-      </div>
+
+      <img src="images/space.jpg" alt="CinePS" class="img-fluid" style="width: 100%; height: auto;">
     </div>
   </ng-container>
 </app-layout>
