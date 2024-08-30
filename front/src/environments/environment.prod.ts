@@ -13,6 +13,6 @@
 export const environment = {
     production: true,
     title: 'CinePS',
-    apiURL: 'http://preprod-ps-api.gc2.fr',
+    apiURL: 'https://preprod-ps-api.gc2.fr',
     assetsURL: 'https://www.lgda.fr/cineps/',
 }
