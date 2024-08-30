@@ -17,7 +17,7 @@ import { MatMenuModule} from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
 import { RouterModule } from '@angular/router';
-import { DataService } from 'src/app/core/service/data.service';
+import { DataService, Jour } from 'src/app/core/service/data.service';
 import { Observable, switchMap } from 'rxjs';
 
 @Component({
@@ -35,12 +35,12 @@ import { Observable, switchMap } from 'rxjs';
 })
 export class HomeComponent implements OnInit {
 
-  public donneesJour!: Observable<string>
+  public donneesJour$!: Observable<Jour>
 
   constructor(private dataService: DataService) {
   }
 
   ngOnInit(): void {
-    this.donneesJour = this.dataService.donneesJour()
+    this.donneesJour$ = this.dataService.donneesJour()
   }
 }

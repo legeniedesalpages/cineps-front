@@ -12,7 +12,7 @@
 **/
 import { HttpClient } from '@angular/common/http'
 import { Injectable } from '@angular/core'
-import { Observable, switchMap } from 'rxjs'
+import { Observable, of, switchMap } from 'rxjs'
 import { environment } from 'src/environments/environment'
 
 @Injectable({ providedIn: 'root' })
@@ -26,11 +26,22 @@ export class DataService {
     constructor(private http: HttpClient) {
     }
 
-    public donneesJour(): Observable<string> {
+    public donneesJour(): Observable<Jour> {
         console.log("getting data")
-        return this.http.get<any>(this.currentSemaineUrl).pipe(switchMap(jours => {
+        return this.http.get<Jour[]>(this.currentSemaineUrl).pipe(switchMap(jours => {
             console.log("data: ", jours[0])
-            return "" + jours[0].id
+            return of(jours[0]);
         }))
+    }
+}
+
+export interface Jour {
+    id: number
+    jour: string
+    proposition_termine: boolean
+    proposeur: {
+        id: number
+        Nom: string
+        Prenom: string
     }
 }

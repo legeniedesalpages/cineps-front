@@ -10,9 +10,14 @@
     <div class="banner background-primary">
       <h1>Ciné PS</h1>
     </div>
-    
-    <div class="container" [ngStyle]="{'background': 'linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url(images/space.jpg) no-repeat top / cover'}">
-      id : --{{ (donneesJour | async) }}--
+
+    <div class="container"
+      [ngStyle]="{'background': 'linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url(images/space.jpg) no-repeat top / cover'}">
+      <ul>
+        @let donnee = (donneesJour$ | async);
+        <li>jour : {{ donnee?.jour }}</li>
+        <li>proposeur : {{ donnee?.proposeur?.Nom }}</li>
+      </ul>
     </div>
   </ng-container>
 
