@@ -1,0 +1,8 @@
+{
+    "/api/*": {
+        "target": "http://preprod-ps-api.gc2.fr",
+        "secure": false,
+        "logLevel": "debug",
+        "changeOrigin": true
+    }
+}

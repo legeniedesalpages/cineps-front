@@ -1,0 +1,34 @@
+<div class="login-page">
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+
+        <mat-form-field appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" autocomplete="username" autofocus>
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+            <mat-label>Mot de passe</mat-label>
+            <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" autocomplete="current-password">
+            <button mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'"
+                type="button" [attr.aria-pressed]="hidePassword" tabindex="-1">
+                <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </button>
+        </mat-form-field>
+
+        <div *ngIf="errorMessage">
+            {{errorMessage}}
+        </div>  
+
+        <button mat-flat-button [disabled]="!loginForm.valid" [hidden]="loading">
+            C'est parti !
+        </button>
+
+        <div *ngIf="loading">
+            <div class="spinner">
+                <mat-spinner [diameter]=36 [strokeWidth]="7"></mat-spinner>
+            </div>
+        </div>
+
+    </form>
+</div>

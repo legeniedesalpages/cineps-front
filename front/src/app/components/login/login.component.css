@@ -1,0 +1,51 @@
+.login-page {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dice {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 15px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.mat-mdc-card-header {
+  padding: 5px !important;
+  display: flex !important;
+}
+
+.mat-card {
+  padding: 0 !important;
+}
+
+.mat-mdc-card-content {
+  padding: 15px !important;
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10px;
+}
+
+a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+}

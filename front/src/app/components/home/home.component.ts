@@ -11,12 +11,14 @@
     * - Modification    : 
 **/
 import { Component, OnInit } from '@angular/core'
-import { environment } from 'src/environments/environment'
 import { LayoutComponent } from '../layout/layout.component'
 import { MatIconModule } from '@angular/material/icon'
 import { MatMenuModule} from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
 import { MatButtonModule } from '@angular/material/button';
+import { RouterModule } from '@angular/router';
+import { DataService } from 'src/app/core/service/data.service';
+import { Observable, switchMap } from 'rxjs';
 
 @Component({
   templateUrl: './home.component.html',
@@ -27,19 +29,18 @@ import { MatButtonModule } from '@angular/material/button';
     MatIconModule,
     MatMenuModule,
     CommonModule,
-    MatButtonModule
+    MatButtonModule,
+    RouterModule
   ]
 })
 export class HomeComponent implements OnInit {
 
-  public env = environment
+  public donneesJour!: Observable<string>
 
-  constructor() {
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit(): void {
-  }
-
-  logout() {
+    this.donneesJour = this.dataService.donneesJour()
   }
 }

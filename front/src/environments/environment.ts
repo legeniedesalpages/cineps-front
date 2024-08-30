@@ -13,6 +13,6 @@
 export const environment = {
     production: false,
     title: 'CinePS Dev',
-    apiURL: 'http://localhost:8000',
-    assetsURL: 'http://localhost:5000/'
+    apiURL: 'http://localhost:5001',
+    assetsURL: 'http://localhost:5001/'
 }

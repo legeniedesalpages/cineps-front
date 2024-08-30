@@ -17,7 +17,7 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-root',
   template: `
     <div class="app">
-      <router-outlet #o="outlet"></router-outlet>
+      <router-outlet></router-outlet>
     </div>
   `,
 })

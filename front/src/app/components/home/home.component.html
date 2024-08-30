@@ -1,16 +1,9 @@
 <app-layout [withBackButton]="false">
   <ng-container role="header">
-    <button mat-flat-button [matMenuTriggerFor]="login">
-      <span>utilisateur</span>
+    <button mat-flat-button routerLink="/login">
+      <span>se connecter</span>
       <mat-icon>person</mat-icon>
     </button>
-
-    <mat-menu #login="matMenu" xPosition="before">
-      <button mat-menu-item (click)="logout()">
-        <mat-icon>power_settings_new</mat-icon>
-        <span>Se déconnecter</span>
-      </button>
-    </mat-menu>
   </ng-container>
 
   <ng-container role="body">
@@ -19,6 +12,7 @@
     </div>
     
     <div class="container" [ngStyle]="{'background': 'linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.8)), url(images/space.jpg) no-repeat top / cover'}">
+      id : --{{ (donneesJour | async) }}--
     </div>
   </ng-container>
 
